@@ -1,1 +1,1 @@
-console.log('This is Js Tutorial');
+console.log('This is Js Tutorial for Math Library');
