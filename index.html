@@ -4,35 +4,31 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JS Tutorial Editable Div</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   </head>
-  <body>
-    <div class="container" style="margin: 0 0 0 5rem">
-      <h1
-        style="
-          font-family: Arial, Helvetica, sans-serif;
-          color: darkslategrey;
-          text-align: center;
-          margin: 5% 0 0 -5%;
-        "
-      >
-        Editable Div By Js
-      </h1>
-      <div
-        id="editableDiv"
-        style="
-          position: relative;
-          margin: 5% 0 0 20%;
-          border: 2px solid black;
-          min-height: 8rem;
-          height: fit-content;
-          width: 40rem;
-          margin: 5rem 0 0 15rem;
-          font-family: Arial, Helvetica, sans-serif;
-          font-weight: 600;
-          color: darkslategray;
-          font-size: 24px;
-        "
-      ></div>
+  <body class="grey lighten-2">
+    <!-- Site Heading -->
+    <div class="row">
+      <h2 class="center col s12 m12 l12">Editable Div Using Vanilla Js</h2>
+      <h5 class="center col l12 m12 s12">
+        Click the below div to edit it and if clicked outside the div , content
+        inside will change dynamically !
+      </h5>
+    </div>
+    <div class="section container row">
+      <div class="card col s12 m12 l12 light-blue lighten-4">
+        <div class="card-content center">
+          <!-- <span class="card-title">Click Here !</span> -->
+          <div id="editableDiv"></div>
+        </div>
+      </div>
     </div>
 
     <script src="logic.js"></script>

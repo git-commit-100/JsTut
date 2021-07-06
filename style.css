@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.textArea {
+  height: 30vh;
+  width: 60vw;
+  border: none;
+  color: darkslategray;
+  outline: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  /* transform: scale(0.8); */
+  /* transition: all 1s ease-in-out; */
+}
+
+#editableDiv {
+  cursor: pointer;
+  font-size: 20px;
+}
