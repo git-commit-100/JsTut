@@ -56,4 +56,15 @@ function getRandomNumber(min,max) {
 getRandomNumber(1,5);
 
 
+//printing a random value from an array
+let animalsArray = ['cat','dog','horse','frog','elephant','zebra','donkey'];
+
+//funtion to get random values from array
+function getRandomElements(arr){
+    let random = arr[Math.floor(Math.random() * arr.length)];
+    console.log(random);
+}
+
+getRandomElements(animalsArray);
+
 
