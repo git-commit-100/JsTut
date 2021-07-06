@@ -25,7 +25,7 @@ editableDiv.addEventListener("click", function () {
   let textArea = document.getElementsByClassName("textArea")[0];
   textArea.addEventListener("blur", function () {
     if(textArea.value == null || textArea.value == ""){
-        textArea.value = "Type Something to edit !";
+        textArea.value = "Type something to edit !";
     }
     editableDiv.innerHTML = textArea.value;
     localStorage.setItem("text", textArea.value);
