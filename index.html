@@ -1,11 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JS Tutorial</title>
-</head>
-<body>
+
+    <!-- Compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <style>
+      .btn-wrap {
+        margin-top: 3rem;
+      }
+      .btn {
+        width: 50%;
+        border-radius: 16px;
+      }
+
+      #listWrap {
+        margin-top: 3rem;
+      }
+
+    </style>
+  </head>
+
+  <body class="grey lighten-4">
+    <div class="container">
+      <h2 class="center">AJAX Requests</h2>
+      <div class="btn-wrap center">
+        <a href="#" id="fetchBtn" class="btn blue lighten-1">Fetch Data</a>
+      </div>
+      <div class="center" id="listWrap">
+        <ul class="center collection with-header" id="list">
+          </li>
+        </ul>
+      </div>
+    </div>
     <script src="logic.js"></script>
-</body>
+  </body>
 </html>
