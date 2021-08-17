@@ -1,96 +1,63 @@
-console.log("This is Js Tutorial");
+console.log("Word API");
 
-const fetchBtn = document.getElementById("fetchBtn");
-const list = document.getElementById("list");
+const word = document.getElementById("word");
+const displayList = document.getElementById("displayList");
+const searchBtn = document.getElementById("searchBtn");
 
-fetchBtn.addEventListener("click", InsertDataIntoDb);
-// fetchBtn.addEventListener("click", getDataFromDb);
+searchBtn.addEventListener("click", function () {
+  //EMPTY INPUT VALIDATION
+  if (word.value == null || word.value == "") {
+    word.focus();
+  } else {
+    //DRIVER FUNCTION
+    fetchWordApi(word.value);
+    displayList.classList.remove("hide");
+  }
+});
 
-function InsertDataIntoDb() {
-  //INSTANTIATE XHR OBJECT
+function fetchWordApi(word) {
   const xhr = new XMLHttpRequest();
 
-  //OPEN OBJECT
+  let link = "https://api.dictionaryapi.dev/api/v2/entries/en/" + word;
+  console.log(link);
 
-  //GET
-  //FETCH DATA FROM TXT FIlE
-  // xhr.open("GET",'fake.txt', true);
+  xhr.open("GET", link, true);
 
-  //FETCH DATA FROM EXT LINKS
-  // xhr.open("GET", "https://jsonplaceholder.typicode.com/posts/1", true);
-
-  //POST
-  xhr.open("POST", "http://dummy.restapiexample.com/api/v1/create", true);
-  xhr.getResponseHeader("Content-type", "application/json");
-
-  //WHEN RESPONSE IS IN PROGRESS
   xhr.onprogress = function () {
-    console.log("Request Processing");
+    console.log("on progress");
   };
 
-  //WHEN RESPONSE IS READY
   xhr.onload = function () {
-    // console.log(xhr.responseText);
-
-    // INSERT DATA INTO HTML
-    if (xhr.status === 429) {
-      list.innerHTML = `<li class="collection-header"><h4>Server Error 429 !</h4>
-      <li class="collection-item">OR same entry request !</li>`;
-      return;
-    } else {
+    if (xhr.status === 200) {
+      console.log("ok");
       let jsonData = JSON.parse(xhr.responseText);
-      //TO PRINT ID and MESSAGE
-      let dataID = jsonData.data.id; 
-      let dataMessage = jsonData.message;
 
-      //PRINT TO DOM
-      list.innerHTML = `<li class="collection-header"><h4>${dataMessage}</h4>
-      <li class="collection-item">Id For Employee is: ${dataID}</li>`;
-    }
-  };
+      let data = jsonData[0];
+      let dataWord = data.word;
+      let dataMeaning = data.meanings[0];
+      let dataPartOfSpeech = dataMeaning.partOfSpeech;
+      let dataDefs = dataMeaning.definitions;
+      let dataDef = "";
 
-  //INITIATE REQUEST FOR GET
-  // xhr.send();
-
-  //INITIATE REQUEST FOR POST
-  let data = `{"name":"employee657876","salary":"123","age":"23"}`;
-  xhr.send(data);
-
-  //WILL EXECUTE ASYNCRONOUSLY
-  console.log("Exit");
-}
-
-function getDataFromDb() {
-  const req = new XMLHttpRequest();
-
-  req.open("GET", "https://dummy.restapiexample.com/api/v1/employees", "true"); //RETURNS JSON
-
-  req.onprogress = function () {
-    console.log("processing");
-  };
-
-  req.onload = function () {
-    //DUE TO ERROR 429
-    if (req.status === 200) {
-      //PARSING DATA FROM DB i.e SERVER
-      let dataFromDb = JSON.parse(req.responseText);
-
-      //CONTAINS .data AS ARRAY
-      let dataArr = dataFromDb.data;
-
-      //ITERATING THROUGH ARRAY
-      let data = "";
-      for (key in dataArr) {
-        data += `<li class="collection-item">${dataArr[key].employee_name}</li>`;
+      for (key in dataDefs) {
+        dataDef += `${dataDefs[key].definition}<br><br>`;
       }
 
-      //PRINTING INTO DOM
-      list.innerHTML = `<li class="collection-header"><h4>Employee List</h4>`+data;
-    } else {
-      list.innerHTML = `<li class="collection-header"><h4>Server Error 429 !</h4>
-      <li class="collection-item">OR reload again !</li>`;
+      let htmlOfADef = `<p>${dataDef}</p>`;
+
+      //INSERTING INTO DOM
+      let htmlOfDataWord = `<li class="col s12 m12 l12 collection-item left"><h6>Searched Word is: &nbsp;${dataWord}</h6></li>`;
+      let htmlOfPartOfSpeech = `<li class="col s12 m12 l12 collection-item left">Part Of Speech is: &nbsp;${dataPartOfSpeech}</li>`;
+      let htmlOfDataDefinition = `<li class="col s12 m12 l12 collection-item left">Defintions: ${htmlOfADef}</li>`;
+
+      displayList.innerHTML = `${
+        htmlOfDataWord + htmlOfPartOfSpeech + htmlOfDataDefinition
+      }`;
+    }
+    else{
+      console.log('no');
     }
   };
-  req.send();
-  console.log("exit");
+
+  xhr.send();
 }

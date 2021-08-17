@@ -1,46 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>JS Tutorial</title>
 
-    <!-- Compiled and minified CSS -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Word API Project</title>
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <style>
-      .btn-wrap {
-        margin-top: 3rem;
-      }
-      .btn {
-        width: 50%;
-        border-radius: 16px;
-      }
+  <style>
+    #formDiv {
+      margin-top: 3rem;
+    }
 
-      #listWrap {
-        margin-top: 3rem;
-      }
+    /* label color */
+    .input-field label {
+      color: grey;
+    }
 
-    </style>
-  </head>
+    /* label focus color */
+    .input-field input[type="text"]:focus+label {
+      color: #0277bd !important;
+    }
 
-  <body class="grey lighten-4">
-    <div class="container">
-      <h2 class="center">AJAX Requests</h2>
-      <div class="btn-wrap center">
-        <a href="#" id="fetchBtn" class="btn blue lighten-1">Fetch Data</a>
+    /* label underline focus color */
+    .input-field input[type="text"]:focus {
+      border-bottom: 1px solid #0277bd !important;
+      box-shadow: 0 1px 0 0 #0277bd !important;
+    }
+
+    /* icon prefix focus color */
+    .input-field .prefix.active {
+      color: #0277bd;
+    }
+
+    #searchBtn {
+      width: 40% !important;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      margin-top: -4rem;
+      border-radius: 16px;
+      font-size: 14px;
+      transition: all 0.5s ease-in-out;
+    }
+
+    #searchBtn:hover,
+    #searchBtn:active {
+      font-size: 16px;
+    }
+
+    #results {
+      margin-top: 6rem;
+    }
+
+    .collection-item{
+      font-size: 16px !important;
+      padding: 1rem !important;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h3 class="center">Dictionary Using Word API</h3>
+    <div class="divider"></div>
+
+    <!-- form -->
+    <div class="row" id="formDiv">
+      <div class="input-field col s12 m12 l12">
+        <span class="iconify prefix" data-icon="ant-design:search-outlined"></span>
+        <input type="text" id="word" />
+        <label for="word">Type Your Word Here !</label>
       </div>
-      <div class="center" id="listWrap">
-        <ul class="center collection with-header" id="list">
-          </li>
-        </ul>
-      </div>
+      <a href="#" id="searchBtn" class="btn blue lighten-1">Search For Meaning</a>
     </div>
-    <script src="logic.js"></script>
-  </body>
+  </div>
+
+  <!-- search results -->
+  <div class="row" id="results">
+    <ul class="hide col s10 m10 l10 offset-s1 offset-m1 offset-l1 collection" id="displayList"></ul>
+  </div>
+
+  <!-- iconify script  -->
+  <script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
+  <script src="logic.js"></script>
+</body>
+
 </html>
