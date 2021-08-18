@@ -47,7 +47,13 @@ function fetchWordApi(word) {
       let dataDef = "";
 
       for (key in dataDefs) {
+        //NO EXAMPLES PRESENT
+        if(dataDefs[key].example == null || dataDefs[key].example == undefined){
         dataDef += `${dataDefs[key].definition}<br><br>`;
+        } else {
+          //EXAMPLES PRESENT
+        dataDef += `${dataDefs[key].definition}<p class="red-text">eg: ${dataDefs[key].example}</p><br>`;
+        }
       }
 
       let htmlOfADef = `<p>${dataDef}</p>`;
