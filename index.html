@@ -38,12 +38,7 @@
     }
 
     #searchBtn {
-      width: 40% !important;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      margin-top: -4rem;
+      margin-top: 1rem;
       border-radius: 16px;
       font-size: 14px;
       transition: all 0.5s ease-in-out;
@@ -55,17 +50,42 @@
     }
 
     #results {
-      margin-top: 6rem;
+      margin-top: 2rem;
     }
 
     .collection-item{
       font-size: 16px !important;
       padding: 1rem !important;
     }
+
+    .preloader-div{
+      z-index: 1 !important;
+      width: 100%;
+      height: 100%;
+      position: fixed !important;
+      top: 0;
+      left: 0;
+      background-color: white;
+    }
+
+    .preloader{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+    }
   </style>
 </head>
 
 <body>
+  <!-- loading div  -->
+  <div class="preloader-div" id="preloader-div">
+    <div class="preloader" id="preloader">
+      <img src="loader.gif" style="width: 100px; height: 100px;" alt="Loading...">
+    </div>
+  </div>
+
+  <!-- main body  -->
   <div class="container">
     <h3 class="center">Dictionary Using Word API</h3>
     <div class="divider"></div>
@@ -77,7 +97,7 @@
         <input type="text" id="word" />
         <label for="word">Type Your Word Here !</label>
       </div>
-      <a href="#" id="searchBtn" class="btn blue lighten-1">Search For Meaning</a>
+      <a href="#" id="searchBtn" class="col s8 m6 l6 offset-l3 offset-m3 offset-s2 btn blue lighten-1">Search For Meaning</a>
     </div>
   </div>
 

@@ -1,5 +1,11 @@
 console.log("Word API");
 
+//PRELOADER LOGIC
+const preloaderDiv = document.getElementById('preloader-div');
+document.onload = setTimeout(function(){
+  preloaderDiv.classList.add('hide');
+},1000);
+
 const word = document.getElementById("word");
 const displayList = document.getElementById("displayList");
 const searchBtn = document.getElementById("searchBtn");
@@ -23,13 +29,14 @@ function fetchWordApi(word) {
 
   xhr.open("GET", link, true);
 
-  xhr.onprogress = function () {
-    console.log("on progress");
-  };
+  xhr.onprogress = setTimeout(function(){
+    preloaderDiv.classList.remove('hide');
+  },1000);
 
-  xhr.onload = function () {
+  xhr.onload = setTimeout(function () {
+    preloaderDiv.classList.add('hide');
+
     if (xhr.status === 200) {
-      console.log("ok");
       let jsonData = JSON.parse(xhr.responseText);
 
       let data = jsonData[0];
@@ -53,11 +60,23 @@ function fetchWordApi(word) {
       displayList.innerHTML = `${
         htmlOfDataWord + htmlOfPartOfSpeech + htmlOfDataDefinition
       }`;
+    } else {
+      //IF TYPED WORD IS NOT LEGIT OR DOES NOT EXIST
+      let jsonData = JSON.parse(xhr.responseText);
+      let errorTitle = jsonData.title;
+      let errorMessage = jsonData.message;
+      let errorResolution = jsonData.resolution;
+
+      //INSERTING INTO DOM
+      let htmlOfErrorTitle = `<li class="col s12 m12 l12 collection-item left"><h6>Error: &nbsp;${errorTitle}</h6></li>`;
+      let htmlOfErrorMessage = `<li class="col s12 m12 l12 collection-item left">${errorMessage}</li>`;
+      let htmlOfErrorResolution = `<li class="col s12 m12 l12 collection-item left">${errorResolution}</li>`;
+
+      displayList.innerHTML = `${
+        htmlOfErrorTitle + htmlOfErrorMessage + htmlOfErrorResolution
+      }`;
     }
-    else{
-      console.log('no');
-    }
-  };
+  },1500);
 
   xhr.send();
 }
