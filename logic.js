@@ -1,10 +1,10 @@
 console.log("Word API");
 
 //PRELOADER LOGIC
-const preloaderDiv = document.getElementById('preloader-div');
-document.onload = setTimeout(function(){
-  preloaderDiv.classList.add('hide');
-},1000);
+const preloaderDiv = document.getElementById("preloader-div");
+document.onload = setTimeout(function () {
+  preloaderDiv.classList.add("hide");
+}, 1000);
 
 const word = document.getElementById("word");
 const displayList = document.getElementById("displayList");
@@ -28,12 +28,12 @@ function fetchWordApi(word) {
 
   xhr.open("GET", link, true);
 
-  xhr.onprogress = setTimeout(function(){
-    preloaderDiv.classList.remove('hide');
-  },1000);
+  xhr.onprogress = setTimeout(function () {
+    preloaderDiv.classList.remove("hide");
+  }, 1000);
 
   xhr.onload = setTimeout(function () {
-    preloaderDiv.classList.add('hide');
+    preloaderDiv.classList.add("hide");
     displayList.classList.remove("hide");
 
     if (xhr.status === 200) {
@@ -45,14 +45,20 @@ function fetchWordApi(word) {
       let dataPartOfSpeech = dataMeaning.partOfSpeech;
       let dataDefs = dataMeaning.definitions;
       let dataDef = "";
+      let counter = 1;
 
       for (key in dataDefs) {
         //NO EXAMPLES PRESENT
-        if(dataDefs[key].example == null || dataDefs[key].example == undefined){
-        dataDef += `${dataDefs[key].definition}<br><br>`;
+        if (
+          dataDefs[key].example == null ||
+          dataDefs[key].example == undefined
+        ) {
+          dataDef += `${counter}.&nbsp;&nbsp;${dataDefs[key].definition}<br><br>`;
+          counter += 1;
         } else {
           //EXAMPLES PRESENT
-        dataDef += `${dataDefs[key].definition}<p class="red-text">eg: ${dataDefs[key].example}</p><br>`;
+          dataDef += `${counter}.&nbsp;&nbsp;${dataDefs[key].definition}<p class="red-text">eg: ${dataDefs[key].example}</p><br>`;
+          counter +=1;
         }
       }
 
@@ -82,7 +88,7 @@ function fetchWordApi(word) {
         htmlOfErrorTitle + htmlOfErrorMessage + htmlOfErrorResolution
       }`;
     }
-  },1500);
+  }, 1500);
 
   xhr.send();
 }
