@@ -17,7 +17,6 @@ searchBtn.addEventListener("click", function () {
   } else {
     //DRIVER FUNCTION
     fetchWordApi(word.value);
-    displayList.classList.remove("hide");
   }
 });
 
@@ -35,6 +34,7 @@ function fetchWordApi(word) {
 
   xhr.onload = setTimeout(function () {
     preloaderDiv.classList.add('hide');
+    displayList.classList.remove("hide");
 
     if (xhr.status === 200) {
       let jsonData = JSON.parse(xhr.responseText);
