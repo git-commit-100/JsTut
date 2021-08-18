@@ -40,6 +40,7 @@ function fetchWordApi(word) {
       let jsonData = JSON.parse(xhr.responseText);
 
       let data = jsonData[0];
+      console.log(data);
       let dataWord = data.word;
       let dataMeaning = data.meanings[0];
       let dataPartOfSpeech = dataMeaning.partOfSpeech;
@@ -58,10 +59,9 @@ function fetchWordApi(word) {
         } else {
           //EXAMPLES PRESENT
           dataDef += `${counter}.&nbsp;&nbsp;${dataDefs[key].definition}<p class="red-text">eg: ${dataDefs[key].example}</p><br>`;
-          counter +=1;
+          counter += 1;
         }
       }
-
       let htmlOfADef = `<p>${dataDef}</p>`;
 
       //INSERTING INTO DOM
