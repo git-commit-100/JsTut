@@ -1,114 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Word API Project</title>
-  <!-- Compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
-  <!-- Compiled and minified JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promises</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
-  <style>
-    #formDiv {
-      margin-top: 3rem;
-    }
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  </head>
 
-    /* label color */
-    .input-field label {
-      color: grey;
-    }
-
-    /* label focus color */
-    .input-field input[type="text"]:focus+label {
-      color: #0277bd !important;
-    }
-
-    /* label underline focus color */
-    .input-field input[type="text"]:focus {
-      border-bottom: 1px solid #0277bd !important;
-      box-shadow: 0 1px 0 0 #0277bd !important;
-    }
-
-    /* icon prefix focus color */
-    .input-field .prefix.active {
-      color: #0277bd;
-    }
-
-    #searchBtn {
-      margin-top: 1rem;
-      border-radius: 16px;
-      font-size: 14px;
-      transition: all 0.5s ease-in-out;
-    }
-
-    #searchBtn:hover,
-    #searchBtn:active {
-      font-size: 16px;
-    }
-
-    #results {
-      margin-top: 2rem;
-    }
-
-    .collection-item{
-      font-size: 16px !important;
-      padding: 1rem !important;
-    }
-
-    .preloader-div{
-      z-index: 1 !important;
-      width: 100%;
-      height: 100%;
-      position: fixed !important;
-      top: 0;
-      left: 0;
-      background-color: white;
-    }
-
-    .preloader{
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%,-50%);
-    }
-  </style>
-</head>
-
-<body>
-  <!-- loading div  -->
-  <div class="preloader-div" id="preloader-div">
-    <div class="preloader" id="preloader">
-      <img src="loader.gif" style="width: 60px; height: 60px;" alt="Loading...">
+  <body>
+    <h3 class="center">Promises Application</h3>
+    <div class="container" id="mainDiv">
+      
     </div>
-  </div>
-
-  <!-- main body  -->
-  <div class="container">
-    <h3 class="center">Dictionary Using Word API</h3>
-    <div class="divider"></div>
-
-    <!-- form -->
-    <div class="row" id="formDiv">
-      <div class="input-field col s12 m12 l12">
-        <span class="iconify prefix" data-icon="ant-design:search-outlined"></span>
-        <input type="text" id="word" />
-        <label for="word">Type Your Word Here !</label>
-      </div>
-      <a href="#" id="searchBtn" class="col s8 m6 l6 offset-l3 offset-m3 offset-s2 btn blue lighten-1">Search For Meaning</a>
-    </div>
-  </div>
-
-  <!-- search results -->
-  <div class="row" id="results">
-    <ul class="hide col s10 m10 l10 offset-s1 offset-m1 offset-l1 collection" id="displayList"></ul>
-  </div>
-
-  <!-- iconify script  -->
-  <script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
-  <script src="logic.js"></script>
-</body>
+    <script src="logic.js"></script>
+  </body>
 
 </html>
