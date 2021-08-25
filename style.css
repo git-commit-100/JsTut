@@ -1,6 +1,4 @@
-.hr {
-  background-color: lightgrey;
-  height: 1px;
-  border: 0;
+.row {
+  margin: 0 auto !important;
 }
 /*# sourceMappingURL=style.css.map */

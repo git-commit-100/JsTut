@@ -9,43 +9,61 @@
         <!-- BOOTSTRAP CSS  -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
             integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-        <link rel="stylesheet" href="style.css">    
+        <link rel="stylesheet" href="style.css">
     </head>
 
-    <body>
+    <body class="mb-4">
+        <!-- SPINNER  -->
+
+
         <!-- navbar  -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
                 <a class="navbar-brand ms-3 fw-bold display-1" href="#">
                     <span class="iconify-inline" data-icon="bx:bxs-train"></span>
                     Toofaan Express</a>
-                <button class="navbar-toggler me-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarLinks"
-                    aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler me-3" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarLinks" aria-controls="navbarText" aria-expanded="false"
+                    aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+
                 <div class="collapse me-3 navbar-collapse" id="navbarLinks">
-                    <span class="position-absolute d-none d-lg-inline top-50 start-50 translate-middle lead navbar-text">
+                    <span
+                        class="position-absolute d-none d-lg-inline top-50 start-50 translate-middle lead navbar-text">
                         "Top Trending Khabre At 180 km/h"
                     </span>
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <hr class="hr">
-                        <li class="nav-item text-center text-light d-lg-none lead">
-                            <span>"Top Trending Khabre At 180 km/h"</span>
-                        </li>
-                        <hr class="hr">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <li
+                            class="nav-item my-2 mt-3 pt-3 border border-light border-end-0 border-start-0 text-center text-light d-lg-none">
+                            <p class="light-grey">"Top Trending Khabre At 180 km/h"</p>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">About Us</a>
+                            <a class="nav-link active" aria-current="page" href="#">
+                                <span class="iconify-inline d-sm-inline d-lg-none"
+                                    data-icon="akar-icons:chevron-right"></span>
+                                Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Contact Us</a>
+                            <a class="nav-link" href="#">
+                                <span class="iconify-inline d-sm-inline d-lg-none"
+                                    data-icon="akar-icons:chevron-right"></span>
+                                About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <span class="iconify-inline d-sm-inline d-lg-none"
+                                    data-icon="akar-icons:chevron-right"></span>
+                                Contact Us</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
+
+        <!-- NEWS SECTION  -->
+        <div class="container-fluid row row-cols-1 row-cols-md-3 g-4" id="newsSection">
+        </div>
 
         <!-- BOOTSTRAP JS  -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
@@ -54,6 +72,7 @@
 
         <!-- ICONIFY SCRIPT -->
         <script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
+        <script src="logic.js"></script>
     </body>
 
 </html>
