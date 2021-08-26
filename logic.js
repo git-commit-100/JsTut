@@ -15,7 +15,6 @@ xhr.onload = function () {
     if (xhr.status === 200) {
         trendingHeader.classList.remove('visually-hidden')
         let jsonData = JSON.parse(xhr.responseText);
-        console.log(jsonData);
         let articles = jsonData['articles'];
         let html = '';
 
