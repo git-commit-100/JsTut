@@ -2,12 +2,18 @@ console.log('Toofaan Express News');
 const apiKey = '010c282573f04ca99f38fe37a2d2f355';
 const countryIsoCode = 'in';
 const newsSection = document.getElementById('newsSection');
+const preloaderWrap = document.getElementById('preloaderWrap');
+const trendingHeader = document.getElementById('trendingHeader');
 
 let xhr = new XMLHttpRequest();
 xhr.open('GET', `https://newsapi.org/v2/top-headlines?country=${countryIsoCode}&apiKey=${apiKey}`, true);
 
-xhr.onload = setTimeout(function () {
+xhr.onload = function () {
+    setTimeout(function () {
+        preloaderWrap.classList.add('visually-hidden');
+    }, 1000);
     if (xhr.status === 200) {
+        trendingHeader.classList.remove('visually-hidden')
         let jsonData = JSON.parse(xhr.responseText);
         console.log(jsonData);
         let articles = jsonData['articles'];
@@ -27,7 +33,7 @@ xhr.onload = setTimeout(function () {
                 articles[news].author = 'Unknown';
             }
 
-            html += `<div class="col-lg-6 col-md-6 col-12">
+            html += `<div class="col-lg-4 col-md-6 col-12">
                 <div class="card h-100">
                     <img src="${articles[news].urlToImage}" class="card-img-top" alt="News Image">
                     <div class="card-body">
@@ -45,10 +51,26 @@ xhr.onload = setTimeout(function () {
                 </div>
             </div>`;
         }
-        newsSection.innerHTML = html;
+        newsSection.innerHTML = html + `<div class="col-12 text-center">
+                <small class="lead">~ End Of Trending Today ~</small>
+            </div>` ;
     } else {
         console.log('server error');
+        html = `            <div class="container position-absolute top-50 start-50 translate-middle col-lg-4 col-md-6 col-sm-10 mb-5">
+                <div class="card bg-light border-0">
+                    <img src="error.png" id="errorImg" class="card-image-top image-fluid" alt="Error Image">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Oops, Something gone wrong !</h5>
+                        <div class="card-text lead">
+                            Check Your Internet Connection<br>
+                            OR it may be a server error<br>
+                            You can <a class="text-primary" href="index.html"><b>reload</b></a> the page and try again.
+                        </div>
+                    </div>
+                </div>
+            </div>`;
+        newsSection.innerHTML = html;
     }
-}, 1500);
+}
 
 xhr.send();

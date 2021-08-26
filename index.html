@@ -13,11 +13,14 @@
     </head>
 
     <body class="mb-4">
-        <!-- SPINNER  -->
-
+        <!-- loader  -->
+        <div class="preloaderWrap" id="preloaderWrap">
+            <img class="preloader position-absolute top-50 start-50 translate-middle" src="loading.gif"
+                alt="Loading...">
+        </div>
 
         <!-- navbar  -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
                 <a class="navbar-brand ms-3 fw-bold display-1" href="#">
                     <span class="iconify-inline" data-icon="bx:bxs-train"></span>
@@ -62,8 +65,14 @@
         </nav>
 
         <!-- NEWS SECTION  -->
-        <div class="container-fluid row row-cols-1 row-cols-md-3 g-4" id="newsSection">
+        <br>
+        <div class="container visually-hidden position-relative text-center row" id="trendingHeader">
+            <div class="col-6 text-light position-absolute top-0 start-50 pt-2 translate-middle-x border bg-primary rounded-pill">
+                <h5>Trending Today</h5>
+            </div>
         </div>
+        <br><br>
+        <div class="container-fluid row rows-cols-lg-3 rows-cols-md-6 g-4" id="newsSection"></div>
 
         <!-- BOOTSTRAP JS  -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
