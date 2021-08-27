@@ -4,6 +4,9 @@ const countryIsoCode = 'in';
 const newsSection = document.getElementById('newsSection');
 const preloaderWrap = document.getElementById('preloaderWrap');
 const trendingHeader = document.getElementById('trendingHeader');
+const aboutUs = document.getElementById('aboutUs');
+const contactUs = document.getElementById('contactUs');
+const footer = document.getElementById('footer');
 
 let xhr = new XMLHttpRequest();
 xhr.open('GET', `https://newsapi.org/v2/top-headlines?country=${countryIsoCode}&apiKey=${apiKey}`, true);
@@ -15,6 +18,9 @@ xhr.onload = function () {
     }, 1000);
     if (xhr.status === 200) {
         trendingHeader.classList.remove('visually-hidden');
+        aboutUs.classList.remove('visually-hidden');
+        contactUs.classList.remove('visually-hidden');
+        footer.classList.remove('visually-hidden');
         let jsonData = JSON.parse(xhr.responseText);
         let articles = jsonData['articles'];
         let html = '';
