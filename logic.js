@@ -8,12 +8,13 @@ const trendingHeader = document.getElementById('trendingHeader');
 let xhr = new XMLHttpRequest();
 xhr.open('GET', `https://newsapi.org/v2/top-headlines?country=${countryIsoCode}&apiKey=${apiKey}`, true);
 
+
 xhr.onload = function () {
     setTimeout(function () {
         preloaderWrap.classList.add('visually-hidden');
     }, 1000);
     if (xhr.status === 200) {
-        trendingHeader.classList.remove('visually-hidden')
+        trendingHeader.classList.remove('visually-hidden');
         let jsonData = JSON.parse(xhr.responseText);
         let articles = jsonData['articles'];
         let html = '';
@@ -42,7 +43,7 @@ xhr.onload = function () {
                     <div class="card-footer">
                         <small class="text-left text-muted">Author:&nbsp;${articles[news].author}</small>
                         <div class="my-2 text-end">
-                            <a href="${articles[news].url}" target="_blank" class="btn btn-primary">Read More
+                            <a href="${articles[news].url}" target="_blank" class="btn btn-outline-dark">Read More
                                 <span class="iconify-inline" data-icon="akar-icons:arrow-right"></span>
                             </a>
                         </div>
@@ -50,9 +51,7 @@ xhr.onload = function () {
                 </div>
             </div>`;
         }
-        newsSection.innerHTML = html + `<div class="col-12 text-center">
-                <small class="lead">~ End Of Trending Today ~</small>
-            </div>` ;
+        newsSection.innerHTML = html ;
     } else {
         console.log('server error');
         html = `            <div class="container position-absolute top-50 start-50 translate-middle col-lg-4 col-md-6 col-sm-10 mb-5">
