@@ -2,7 +2,7 @@ console.log('fetch api using async and await');
 
 const fetchBtn = document.getElementById('fetchBtn');
 const dataDiv = document.getElementById('data');
-const url = 'https://jsonplaceholder.typicode.com/todoss/';
+const url = 'https://jsonplaceholder.typicode.com/todos/';   //url
 
 async function getTodos() {
     const response = await fetch(url);
