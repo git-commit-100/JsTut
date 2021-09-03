@@ -5,216 +5,23 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Toofaan Express News</title>
-        <!-- BOOTSTRAP CSS  -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
             integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-        <link rel="stylesheet" href="style.css">
+        <title>FETCH API </title>
     </head>
 
     <body>
-        <!-- loader  -->
-        <div class="preloaderWrap" id="preloaderWrap">
-            <img class="preloader position-absolute top-50 start-50 translate-middle" src="loading.gif"
-                alt="Loading...">
+        <h5 class="display-5 text-center my-2">Fetch API</h5>
+        <div class="row justify-content-center my-5">
+            <a href="#" id="fetchBtn" class="col-lg-2 col-xl-2 col-6 btn btn-outline-primary">Fetch Data</a>
         </div>
 
-        <!-- navbar  -->
-        <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
-            <div class="container-fluid">
-                <a class="navbar-brand ms-3 fw-bold display-1" href="#">
-                    <span class="iconify-inline" data-icon="bx:bxs-train"></span>
-                    Toofaan Express</a>
-                <button class="navbar-toggler me-3" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarLinks" aria-controls="navbarText" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+        <div class="text-center bg-light" id="data"></div>
 
-                <div class="collapse me-3 navbar-collapse" id="navbarLinks">
-                    <span
-                        class="position-absolute d-none d-lg-inline top-50 start-50 translate-middle lead navbar-text">
-                        "Top Trending Khabre At 180 km/h"
-                    </span>
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li
-                            class="nav-item my-2 mt-3 pt-3 border border-light border-end-0 border-start-0 text-center text-light d-lg-none">
-                            <p class="light-grey">"Top Trending Khabre At 180 km/h"</p>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="#">
-                                <span class="iconify-inline d-sm-inline d-lg-none"
-                                    data-icon="akar-icons:chevron-right"></span>
-                                Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#aboutUs">
-                                <span class="iconify-inline d-sm-inline d-lg-none"
-                                    data-icon="akar-icons:chevron-right"></span>
-                                About Us</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#contactUs">
-                                <span class="iconify-inline d-sm-inline d-lg-none"
-                                    data-icon="akar-icons:chevron-right"></span>
-                                Contact Us</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
-        <!-- NEWS SECTION  -->
-        <br>
-        <div class="container visually-hidden position-relative text-center row" id="trendingHeader">
-            <div
-                class="col-6 text-light position-absolute top-0 start-50 pt-2 translate-middle-x border bg-dark rounded-pill">
-                <h5 class="lead">Trending Today</h5>
-            </div>
-        </div>
-        <br><br>
-        <div class="container-fluid row rows-cols-lg-3 rows-cols-md-6 g-4" id="newsSection"></div>
-
-        <!-- ABOUT US  -->
-        <section id="aboutUs" class="my-5 visually-hidden">
-            <div class="my-5 pb-3 bg-light">
-                <br>
-                <div class="container-lg">
-                    <div class="text-center my-3">
-                        <span class="display-5">About Us</span>
-                    </div>
-                    <br>
-                    <div class="row align-items-center justify-content-center g-0">
-                        <div class="col-8 col-lg-4 col-xl-3 text-center">
-                            <div class="card border border-0">
-                                <div class="card-body">
-                                    <div class="card-title">
-                                        <span class="iconify text-light bg-dark rounded-pill"
-                                            style="width: 3rem;height: 3rem;"
-                                            data-icon="emojione-monotone:newspaper"></span>
-                                        <br>
-                                        <p class="text-center display-6 mt-1">Top News</p>
-                                    </div>
-                                    <div class="card-text">
-                                        <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                            Suscipit
-                                            voluptas obcaecati nulla voluptate iure facere deleniti.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-9 col-lg-4 col-xl-3 text-center">
-                            <div class="card border border-dark border-2 rounded">
-                                <div class="card-header bg-dark text-light fw-bold">
-                                    Toofaan Express
-                                </div>
-                                <div class="card-body">
-                                    <div class="card-title">
-                                        <span class="iconify text-light bg-dark rounded-pill"
-                                            style="height: 3rem;width: 3rem;" data-icon="clarity:users-line"></span>
-                                        <br>
-                                        <p class="text-center display-6 mt-1">Who Are We ?</p>
-                                    </div>
-                                    <div class="card-text">
-                                        <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                            Suscipit
-                                            voluptas obcaecati nulla voluptate iure facere deleniti.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-8 col-lg-4 col-xl-3 text-center">
-                            <div class="card border border-0">
-                                <div class="card-body">
-                                    <div class="card-title">
-                                        <span class="iconify text-light bg-dark rounded-pill"
-                                            style="height: 3rem;width: 3rem;" data-icon="dashicons:money-alt"></span>
-                                        <br>
-                                        <p class="text-center display-6 mt-1">100% Free</p>
-                                    </div>
-                                    <div class="card-text">
-                                        <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                            Suscipit
-                                            voluptas obcaecati nulla voluptate iure facere deleniti.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- CONTACT US FORM  -->
-        <section id="contactUs" class="mb-5 visually-hidden">
-            <br><br>
-            <div class="text-center">
-                <h5 class="display-5">Contact Us</h5>
-                <p class="lead">Get In Touch !</p>
-            </div>
-            <div class="container-lg justify-content-center align-items-center row">
-                <div class="col-10 my-3 col-lg-8">
-                    <div class="input-group">
-                        <span class="input-group-text">
-                            <span class="iconify" data-icon="carbon:user-avatar-filled-alt"></span>
-                        </span>
-                        <input type="text" class="form-control" placeholder="Your Name Here" id="userName">
-                    </div>
-                </div>
-                <div class="col-10 my-3 col-lg-8">
-                    <div class="input-group">
-                        <span class="input-group-text">
-                            <span class="iconify" data-icon="ic:baseline-alternate-email"></span>
-                        </span>
-                        <input type="email" class="form-control" placeholder="Your Email Here" id="userEmail">
-                    </div>
-                </div>
-                <div class="col-10 my-3 col-lg-8">
-                    <div class="form-floating">
-                        <textarea class="form-control" style="height: 200px;" placeholder="Message"
-                            id="textarea"></textarea>
-                        <label for="textarea">Your Message Here</label>
-                    </div>
-                </div>
-                <div class="text-center">
-                    <a href="#" class="btn btn-outline-dark rounded">Submit
-                        <span class="iconify-inline" data-icon="fluent:send-24-filled"></span>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- FOOTER  -->
-        <div class="mt-5 container-fluid py-3 bg-dark visually-hidden" id="footer">
-            <div class="row justify-content-center align-items-center">
-                <div class="col-12 text-center text-secondary fw-bold">Toofan Express 2021
-                    <span class="iconify-inline" data-icon="ant-design:copyright-circle-outlined"></span>
-                </div>
-                <br>
-                <div class="col-6 text-start text-secondary">
-                    Follow Us : <br>
-                    <span class="iconify-inline" data-icon="akar-icons:instagram-fill"></span> : <a href="#"
-                        class="text-secondary">@toofaanExpressNews</a><br>
-                    <span class="iconify-inline" data-icon="akar-icons:twitter-fill"></span> : <a href="#"
-                        class="text-secondary">@toofaanOnTweeter</a><br>
-                    <span class="iconify-inline" data-icon="cib:gmail"></span> : <a href="#"
-                        class="text-secondary">toofan@express.in</a>
-                </div>
-                <div class="col-6 text-end">
-                    <span class="text-secondary">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
-                </div>
-
-            </div>
-        </div>
-
-        <!-- BOOTSTRAP JS  -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
             crossorigin="anonymous"></script>
-
-        <!-- ICONIFY SCRIPT -->
-        <script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
-        <script src="logic.js"></script>
+            <script src="logic.js"></script>
     </body>
 
 </html>
