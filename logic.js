@@ -1,31 +1,29 @@
-console.log('Iterators');
+console.log('Generators');
 
-const myArr = ['bmw', 'audi', 'mercedes', 'volvo', 'rolls royce', 'jaguar'];
-console.log('array is: ', myArr);
-
-function iterateArray(array) {
-    let nextIndex = 0;
-    return {
-        iterate: function () {
-            if (nextIndex < array.length) {
-                return {
-                    value: array[nextIndex++],
-                    done: false
-                }
-            } else {
-                return {
-                    done: true
-                }
-            }
-        }
-    }
+function* numberGenerate() {
+    yield 1;
+    yield 2;
+    yield 3;
+    yield 4;
+    yield 5;
 }
 
-let returnArr = iterateArray(myArr);
-console.log(returnArr.iterate());
-console.log(returnArr.iterate());
-console.log(returnArr.iterate());
-console.log(returnArr.iterate());
-console.log(returnArr.iterate());
-console.log(returnArr.iterate());
-console.log(returnArr.iterate());
+let number = numberGenerate();
+
+//PRINT GENERATOR VALUES
+console.log(number.next());
+console.log(number.next());
+console.log(number.next());
+console.log(number.next());
+console.log(number.next());
+console.log(number.next());
+
+//GIVE ANY VALUE WHILE CALLING
+console.log(number.return(109));
+console.log(number.return('something returned'));
+
+//THROW AN ERROR
+console.log(number.throw('Generator Crashed'));
+
+
+
