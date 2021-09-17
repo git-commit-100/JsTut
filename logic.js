@@ -4,10 +4,12 @@ const list = document.getElementById('list');
 const nextBtn = document.getElementById('nextBtn');
 
 function getCandidates() {
+    //USING PROMISE TO CALL 2 FETCH APIS SIMULTANEOUSLY
     Promise.all([
         fetch('https://randomuser.me/api/').then(response => response.json()),
         fetch('data.json').then(response => response.json())
     ])
+        //RETURNS ARRAY OF RESULTS OF FETCH
         .then((data) => {
             printCv(data[0].results ,data[1].languages);
         })
@@ -18,8 +20,13 @@ getCandidates();
 
 nextBtn.addEventListener('click', getCandidates);
 
-function printCv(array1,array2) {
+//GENERATING RANDOM ELEMENT FROM ARRAY
+function generateRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min)
+}
 
+function printCv(array1,array2) {
+    //DATA FROM FETCH API
     let candidate = array1[0];
     let languages = array2;
     let randomInt = generateRandomInt(1, 4);
@@ -34,11 +41,6 @@ function printCv(array1,array2) {
     <li class="list-group-item">Techstack : ${languages[randomInt].techStack}</li>
     <li class="list-group-item">Experience : ${languages[randomInt].experience} years</li>`;
 
-}
-
-//GENERATING RANDOM ARRAY 
-function generateRandomInt(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) + min)
 }
 
 
