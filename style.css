@@ -1,0 +1,132 @@
+* {
+    box-sizing: border-box;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+body {
+    background-image: linear-gradient(to right, #06bcfb, #4884ee);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.clock {
+    position: relative;
+    background-color: rgba(255, 255, 255, .6);
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+    border: 2px solid black;
+}
+
+.clock::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background-color: black;
+    z-index: 11;
+}
+
+.clock .number {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    font-size: 1.5rem;
+    transform: rotate(var(--rotation));
+    text-align: center;
+}
+
+.number.number1 {
+    --rotation: 30deg;
+    transform: rotate(calc(--rotation*1deg));
+}
+
+.number.number2 {
+    --rotation: 60deg;
+    transform: rotate(calc(--rotation*1deg));
+}
+
+.number.number3 {
+    --rotation: 90deg;
+    transform: rotate(calc(--rotation*1deg));
+}
+
+.number.number4 {
+    --rotation: 120deg;
+    transform: rotate(calc(--rotation*1deg));
+}
+
+.number.number5 {
+    --rotation: 150deg;
+    transform: rotate(calc(--rotation*1deg));
+}
+
+.number.number6 {
+    --rotation: 180deg;
+    transform: rotate(calc(--rotation*1deg));
+}
+
+.number.number7 {
+    --rotation: 210deg;
+    transform: rotate(calc(--rotation*1deg));
+}
+
+.number.number8 {
+    --rotation: 240deg;
+    transform: rotate(calc(--rotation*1deg));
+}
+
+.number.number9 {
+    --rotation: 270deg;
+    transform: rotate(calc(--rotation*1deg));
+}
+
+.number.number10 {
+    --rotation: 300deg;
+    transform: rotate(calc(--rotation*1deg));
+}
+
+.number.number11 {
+    --rotation: 330deg;
+    transform: rotate(calc(--rotation*1deg));
+}
+
+.clock .hand {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform: translateX(-50%) rotate(calc(--rotation*1deg));
+    transform-origin: bottom;
+    border: 1px solid white;
+}
+
+.hand.hand-hour {
+    width: 10px;
+    height: 30%;
+    background-color: black;
+    border-radius: 8px 8px 0 0;
+    transform: rotate(calc(--rotation*1deg));
+}
+
+.hand.hand-minutes {
+    width: 6px;
+    height: 40%;
+    background-color: black;
+    border-radius: 8px 8px 0 0;
+    transform: rotate(calc(--rotation*1deg));
+}
+
+.hand.hand-seconds {
+    width: 4px;
+    height: 45%;
+    background-color: red;
+    border-radius: 8px 8px 0 0;
+    transform: rotate(calc(--rotation*1deg));
+}
