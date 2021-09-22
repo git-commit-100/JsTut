@@ -5,151 +5,20 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>PostMan Clone (API Tester)</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
-            integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-        <link rel="stylesheet" href="prism.css">
+        <title>Drag And Drop Vanilla JS</title>
+        <link rel="stylesheet" href="style.css">
     </head>
 
     <body>
-        <!-- navbar  -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container-fluid">
-                <a class="navbar-brand ms-3 fw-bold display-1" href="#">
-                    <span class="iconify-inline" data-icon="carbon:api"></span>
-                    API Tester</a>
-                <button class="navbar-toggler me-3" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarLinks" aria-controls="navbarText" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse me-3 navbar-collapse" id="navbarLinks">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="index.html">
-                                <span class="iconify-inline d-sm-inline d-lg-none"
-                                    data-icon="akar-icons:chevron-right"></span>
-                                Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <span class="iconify-inline d-sm-inline d-lg-none"
-                                    data-icon="akar-icons:chevron-right"></span>
-                                About Us</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <span class="iconify-inline d-sm-inline d-lg-none"
-                                    data-icon="akar-icons:chevron-right"></span>
-                                Contact Us</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <!-- end of nav  -->
-
-        <!-- mainDiv  -->
-        <div class="container mt-3 mb-5">
-            <!-- heading  -->
-            <h3 class="text-center mb-3">Test Your API Here For Free !</h3>
-
-            <!-- form  -->
-            <form class="border p-5">
-                <!-- api link input  -->
-                <div class="mb-3">
-                    <label for="apiUrlInput" class="form-label">URL :</label>
-                    <input type="text" class="form-control" placeholder="Your API URL Here" id="apiUrlInput">
-                </div>
-                <!-- method input  -->
-                <div class="mb-3">
-                    <label class="form-label">Method Type :</label>
-                    <div class="form-check">
-                        <input class="form-check-input" value="GET" name="checkBoxMethod" type="radio" id="checkBoxGet"
-                            checked>
-                        <label class="form-check-label" for="checkBoxGet">
-                            GET
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" value="POST" name="checkBoxMethod" type="radio"
-                            id="checkBoxPost">
-                        <label class="form-check-label" for="checkBoxPost">
-                            POST
-                        </label>
-                    </div>
-                </div>
-                <!-- response input  -->
-                <div class="mb-3">
-                    <label class="form-label">Response Type :</label>
-                    <div class="form-check">
-                        <input class="form-check-input" disabled value="JSON" name="checkBoxResponse" type="radio"
-                            id="checkBoxJson" checked>
-                        <label class="form-check-label" for="checkBoxJson">
-                            JSON
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" disabled value="Custom Param" name="checkBoxResponse"
-                            type="radio" id="checkBoxCustom">
-                        <label class="form-check-label" for="checkBoxCustom">
-                            Custom Parameters
-                        </label>
-                    </div>
-                </div>
-                <!-- json input for post  -->
-                <div class="mb-3" id="jsonInputBox">
-                    <label for="JsonInput" class="form-label">JSON Data :</label>
-                    <textarea id="JsonInput" placeholder="Enter Your JSON Data Here" class="form-control"
-                        rows="3"></textarea>
-                </div>
-                <!-- custom parameters input  -->
-                <div class="mb-4" id="parameterBox">
-                    <label class="form-label">Parameter 1 :</label>
-                    <div class="row g-3">
-                        <div class="col-10 col-md-5">
-                            <input type="text" class="form-control" placeholder="Enter Parameter 1 Key" id="paramKey1">
-                        </div>
-                        <div class="col-10 col-md-5">
-                            <input type="text" class="form-control" placeholder="Enter Parameter 1 Value"
-                                id="paramValue1">
-                        </div>
-                        <div class="col-2">
-                            <a href="#" class="btn btn-primary" id="addParam">
-                                <span class="iconify" data-icon="akar-icons:plus"></span>
-                            </a>
-                        </div>
-                    </div>
-                    <div id="addParamList"></div>
-                </div>
-                <!-- submit btn  -->
-                <div class="mb-3">
-                    <div class="row justify-content-center">
-                        <a href="#" id="submitBtn" class="col-12 col-md-6 btn btn-success">Submit
-                            <span class="iconify-inline" data-icon="bx:bxs-send"></span>
-                        </a>
-                    </div>
-                </div>
-                <!-- response  -->
-                <div class="mb-3">
-                    <label class="form-label">Response :</label>
-                    <pre class="language-json"
-                        id="responseTextArea"><code class="language-json" id="code">Your Response Will Appear Here !</code></pre>
-                </div>
-            </form>
-
+        <div class="whiteBox">
+            <div class="img" draggable="true"></div>
         </div>
-        <!-- end of mainDiv  -->
-
-
-
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
-            crossorigin="anonymous"></script>
-        <script src="https://code.iconify.design/2/2.0.4/iconify.min.js"></script>
+        <div class="whiteBox"></div>
+        <div class="whiteBox"></div>
+        <div class="whiteBox"></div>
+        <div class="whiteBox"></div>
+        <div class="whiteBox"></div>
         <script src="logic.js"></script>
-        <script src="prism.js"></script>
     </body>
 
 </html>
