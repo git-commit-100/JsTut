@@ -1,32 +1,59 @@
-body {
+* {
     margin: 0;
-    background-color: darkslateblue;
+    padding: 0;
+    font-family: Gotham Rounded, sans-serif;
+    box-sizing: border-box;
 }
 
-.whiteBox {
-    height: 160px;
-    width: 160px;
-    margin: 5px;
-    background-color: white;
-    display: inline-block;
-    border: 3px solid slateblue;
+.output-field {
+    min-height: 7rem;
+    text-align: end !important;
+    word-wrap: break-word;
+    word-break: break-all;
+    padding: 1rem;
+    border-radius: 16px 16px 0 0;
 }
 
-.img {
-    background: url('https://source.unsplash.com/random/150x150');
-    height: 150px;
-    width: 150px;
-    position: relative;
-    top: 5px;
-    left: 5px;
+.bg-danger {
+    background-color: #ff0000 !important;
 }
 
-.none{
-    display: none;
+.previous-operation {
+    display: block;
+    color: rgba(255, 255, 255, .9);
+    font-size: 18px;
 }
 
-.hover{
+.current-operation {
+    display: block;
+    color: white;
+    font-size: 30px;
+}
+
+.keys {
+    display: flex;
+    background-color: white !important;
+    justify-content: space-between;
+}
+
+.btn {
     background-color: lightgray;
-    border: 2px dashed grey;
-    cursor: grabbing;
+    border-radius: 50%;
+    font-size: 24px;
+    min-width: 50px !important;
+}
+
+.btn-equals {
+    background-color: #ff0000;
+    color: white;
+}
+
+.btn:hover, .btn:active {
+    background-color: #ff0000 !important;
+    color: white !important;
+}
+
+.decorative-end{
+    height: 2rem;
+    border-radius: 0 0 16px 16px;
 }

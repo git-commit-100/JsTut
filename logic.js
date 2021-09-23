@@ -1,34 +1,31 @@
-console.log('Drag And Drop Using Vanilla JS');
+console.log('Calculator Using Vanilla JS');
 
-const whiteBoxes = document.querySelectorAll('.whiteBox');
-const img = document.querySelector('.img');
+let previousOperation = document.querySelector('.previous-operation');
+let currentOperation = document.querySelector('.current-operation');
+let buttons = document.querySelectorAll('.btn');
+for (let button of buttons) {
+    button.addEventListener('click', (e) => {
+        let buttonTxt = e.target.innerText;
+        let value = currentOperation.innerText;
+        if (buttonTxt == 'AC') {
+            buttonTxt = '';
+            currentOperation.innerText = '';
+            previousOperation.innerText = '';
+        } else if (buttonTxt == '.') {
+            //SUPERHUMAN LOGIC
+            currentOperation.innerText = value + buttonTxt;
 
-img.addEventListener('dragstart', (e) => {
-    setTimeout(() => {
-        e.target.className = 'none';
-    },0)
-
-})
-
-img.addEventListener('dragend', (e) => {
-    e.target.className = 'img';
-    e.target.classList.remove('hover');
-    // console.log('drag end');
-})
-
-for (let whiteBox of whiteBoxes) {
-    whiteBox.addEventListener('dragenter', (e) => {
-        e.target.classList.add('hover');
-    })
-    whiteBox.addEventListener('dragleave', (e) => {
-        e.target.classList.remove('hover');
-    })
-    whiteBox.addEventListener('dragover',(e)=>{
-        e.preventDefault();
-        // console.log('drag over')
-    })
-    whiteBox.addEventListener('drop', (e) => {
-        e.target.append(img);
-        e.target.classList.remove('hover');
+        } else if (buttonTxt == 'DEL') {
+            currentOperation.innerText = value.toString().slice(0, -1);
+        } else if (buttonTxt == '=') {
+            if (value != null) {
+                previousOperation.innerText = value;
+                value = '';
+            }
+            currentOperation.innerText = eval(currentOperation.innerText);
+        } else {
+            value = value + buttonTxt;
+            currentOperation.innerText = value;
+        }
     })
 }
